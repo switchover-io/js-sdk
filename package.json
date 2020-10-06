@@ -1,7 +1,7 @@
 {
   "name": "switchover-js-client",
   "version": "1.0.0",
-  "description": "Switchover Javascript Client-Side SDK. Feature Flag and Toggle Management made easy",
+  "description": "Switchover Javascript Client-Side SDK. Feature Toggle Management made easy",
   "main": "index.js",
   "scripts": {
     "test": "jest",
