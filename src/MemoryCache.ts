@@ -1,7 +1,7 @@
 import { ApiResponse } from "./ApiResponse";
-import { Cache } from "./Cache";
+import { ResponseCache } from "./Cache";
 
-export class MemoryCache implements Cache {
+export class MemoryCache implements ResponseCache {
 
     private _cache = {}
 

@@ -1,6 +1,6 @@
 import { ApiResponse } from "./ApiResponse";
 
-export interface Cache {
+export interface ResponseCache {
     setValue(key: string, value: ApiResponse): void;
     getValue(key:string) : ApiResponse;
 }

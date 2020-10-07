@@ -14,7 +14,7 @@ export class Evaluator {
 
     private logger: Logger = Logger.getLogger();
 
-    public evaluate(config: any, name: string, context:any, defaultValue: boolean) :boolean {
+    public evaluate(config: any, name: string, context: any, defaultValue: boolean) :boolean {
         this.logger.debug('Evalutate config for toggle ' + name);
 
         let toggle = this.findByName(config, name);

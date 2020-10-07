@@ -1,7 +1,17 @@
 
-type Listener = (data?: any) => void;
+export interface Emitter {
+    on(eventKey: string, fn: Listener) : void;
 
-export class EventEmitter {
+    off(eventKey: string, fn: Listener) : void;
+
+    getListeners(eventKey: string) : Listener[];
+
+    emit(eventKey: string, data?: any) : void;
+}
+
+export type Listener = (data?: any) => void;
+
+export class EventEmitter implements Emitter {
 
     _events: Record<string, Listener[]> = {};
 
@@ -22,26 +32,4 @@ export class EventEmitter {
             fn(data);
         });
     }   
-
-    /*
-    public on(event: string, callback: (params) => void) {
-        if (!this._events[event]) {
-            this._events[event] = [];
-        }
-        this._events[event].push(callback);
-    }
-
-    public onPromise(event: string) : Promise<void> {
-        return new Promise( (resolve, _) => {
-            this.on(event, resolve);
-        });
-    }
-
-    public emit(event: string, params = null) {
-        if (this._events[event]) {
-            for (let i in this._events[event]) {
-                this._events[event][i](params)
-            }
-        }
-    } */
 }
