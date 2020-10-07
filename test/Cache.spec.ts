@@ -1,8 +1,8 @@
-import { Cache } from '../src/Cache';
+import { ResponseCache } from '../src/Cache';
 import { MemoryCache } from '../src/MemoryCache';
 
 test('set and get cache', () => {
-    const cache = new MemoryCache();
+    const cache: ResponseCache = new MemoryCache();
 
     const key1 = 'key1';
     const apiRepsonse = {

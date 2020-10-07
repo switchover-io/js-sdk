@@ -1,10 +1,3 @@
-import { isExportDeclaration } from 'typescript';
-import { createClient } from '../src';
-
-test('createClient', () => {
-    const sdkKey = 'testkey'
-    expect(createClient(sdkKey)).toEqual('client');
-})
 
 test('playground', () => {
 

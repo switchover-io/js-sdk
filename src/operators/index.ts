@@ -1,6 +1,6 @@
 export interface Operator {
     name: string;
-    value: string;
+    value: any;
 }
 
 export interface Condition {
@@ -19,7 +19,34 @@ const greaterThanOp = (condVal, actual) => {
 }
 
 const greaterThanEqualOp = (condVal, actual) => {
-    return actual >= condVal;
+    const parsedCondVal = parseToNumber(condVal);
+    const parsedActual = parseToNumber(actual);
+    return parsedActual >= parsedCondVal;
+}
+
+const inSetOp = (condVal, actual) => {
+    return condVal.includes(actual);
+}
+
+const notInSetOp = (condVal, actual) => {
+    return !condVal.includes(actual);
+}
+
+const lessThanOp = (condVal, actual) => {
+    const parsedCondVal = parseToNumber(condVal);
+    const parsedActual = parseToNumber(actual);
+    return parsedActual < parsedCondVal;
+}
+
+const lessThanEqualOp = (condVal, actual) => {
+    const parsedCondVal = parseToNumber(condVal);
+    const parsedActual = parseToNumber(actual);
+    return parsedActual <= parsedCondVal;
+}
+
+const matchesRegexOp = (condVal, actual) => {
+    const regex = new RegExp(condVal);
+    return regex.test(actual);
 }
 
 function parseToNumber(val) {
@@ -36,15 +63,21 @@ function parseToNumber(val) {
     throw new Error('Error parsing condition values')
 }
 
-const operators = {
+export const operators = {
     "equal" : equalsOp,
     "greater-than" : greaterThanOp,
     "greater-than-equal" : greaterThanEqualOp,
+    "in-set" : inSetOp,
+    "not-in-set" : notInSetOp,
+    "less-than" : lessThanOp,
+    "less-than-equal" : lessThanEqualOp,
+    //"percentage" : percentageOp,
+    "matches-regex" : matchesRegexOp,
 }
 
 
-export function satisfies(cond: Condition, context) {
-    if (context[cond.key]) {
+export function satisfies(cond: Condition, context) : boolean {
+    if (!context[cond.key]) {
         return false;
     }
     const fn = operators[cond.operator.name];

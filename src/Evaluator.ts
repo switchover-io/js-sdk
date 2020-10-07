@@ -2,8 +2,8 @@ import { Logger } from "./util/Logger";
 import { satisfies } from "./operators";
 
 
-const ACTIVE = 1;
-const CONDITIONALLY_ACTIVE = 2;
+const ACTIVE = 2;
+const CONDITIONALLY_ACTIVE = 1;
 const INACTIVE = 4;
 
 const STRATEGY_ATLEASTONE = 1;
