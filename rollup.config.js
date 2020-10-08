@@ -1,6 +1,7 @@
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
-import minify from 'rollup-plugin-babel-minify';
+import babel from '@rollup/plugin-babel';
+import { terser } from "rollup-plugin-terser";
 
 export default [{
   input: 'dist/index.js',
@@ -13,6 +14,9 @@ export default [{
   plugins: [
     resolve(),
     commonjs(),
-    minify({ comments: false }),
+    babel({
+      exclude: 'node_modules/**',
+    }),
+    terser()
   ],
 }];
