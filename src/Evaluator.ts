@@ -1,5 +1,5 @@
 import { Logger } from "./util/Logger";
-import { satisfies } from "./operators";
+import { Condition, satisfies } from "./operators";
 
 
 const ACTIVE = 2;
@@ -90,8 +90,21 @@ export class Evaluator {
         return false;
     }
 
+
     private evaluateMajority(toggle, context) : boolean {
-        return false;
+        this.logger.debug('Majority of conditions has to be satisfied');
+
+        let hit = 0;
+        let miss = 0;
+        for(const cond of toggle.conditions) {
+            if (satisfies(cond, context)) {
+                this.logger.debug('Condition ' + cond.key + ' was satisfied by given context');
+                hit++
+            } else {
+                miss++
+            }
+        }
+        return hit > miss;
     }
     
     

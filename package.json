@@ -1,15 +1,17 @@
 {
-  "name": "switchover-js-client",
-  "version": "1.0.0",
+  "name": "switchover-js-sdk",
+  "version": "0.0.8",
   "description": "Switchover Javascript Client-Side SDK. Feature Toggle Management made easy",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": ["dist"],
   "scripts": {
     "test": "jest",
     "build": "tsc",
     "build-browser": "rollup -c"
   },
-  "author": "Michael Hofmann <michael.hofmann@takso.de>",
-  "license": "ISC",
+  "author": "Switchover",
+  "homepage": "https://switch-over.io",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
