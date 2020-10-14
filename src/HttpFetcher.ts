@@ -10,7 +10,9 @@ export class HttpFetcher implements Fetcher {
         
         return new Promise( (resolve, reject) => {
 
-            let xhr = new XMLHttpRequest();
+            let xhr = new window.XMLHttpRequest();
+
+           
 
             const apiUrl = API_ENDPOINT+ '/' + sdkKey + '/' + API_ENDPOINT_FILENAME;
             this.logger.debug('Fetch all ' + apiUrl);
@@ -27,9 +29,10 @@ export class HttpFetcher implements Fetcher {
             xhr.setRequestHeader('X-Switchover-User-Agent', 'switchover-js/1.0');
 
             xhr.send();
-
+            
             xhr.onload = () => {
 
+                console.log("hier bin ich 4");
                 this.logger.debug('Fetch status ' + xhr.status);
                 if (xhr.status === 200) {
                     this.logger.debug('Fetched config');
