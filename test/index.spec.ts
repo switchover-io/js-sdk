@@ -1,13 +1,15 @@
+import Switchover from '../src/index';
 
-test('playground', () => {
+test('create default client not null', () => {    
+    const client = Switchover.createClient('key');
+    expect(client).not.toBeNull();
+});
 
-    type Adder = (x: number, y: number) => number;
+test('create client with auto refresh', () => {
+    const client = Switchover.createClientWithOptions('key', {
+        autoRefresh: true,
+        refreshInterval: 60
+    })
+    expect(client).not.toBeNull();
+});
 
-    const add: Adder = (x, y) => {
-        return x + y
-    }
-
-    expect(add(2,4)).toBe(6);
-
-
-})

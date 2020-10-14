@@ -3,7 +3,10 @@
   "version": "0.0.8",
   "description": "Switchover Javascript Client-Side SDK. Feature Toggle Management made easy",
   "main": "dist/index.js",
-  "files": ["dist"],
+  "browser": "dist/switchover.min.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "jest",
     "build": "tsc",
@@ -25,5 +28,8 @@
     "rollup-plugin-terser": "^7.0.2",
     "ts-jest": "^26.4.1",
     "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "switchover-js-core": "^0.5.0"
   }
 }

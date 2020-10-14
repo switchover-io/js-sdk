@@ -10,9 +10,8 @@
 
     <script>
         var client = Switchover.createClientWithOptions('fb6c850f-7934-4645-a295-ab507857b01f', {
-            polling: true,
+            autoRefresh: true,
         }, 'debug');
-
         
         client.onLoaded( function() {
             console.log('Loaded all toggles');
@@ -20,10 +19,13 @@
             console.log('show-cta1 STATUS: '+  client.active('show-cta1', { stage: 'qa'}));
         });
 
-        client.onUpdated( function() {
+        client.onUpdated( function(keys) {
             console.log('Updated');
 
             console.log('show-cta1 STATUS: '+  client.active('show-cta1', { stage: 'qa'}));
+
+            console.log('Changed keys');
+            console.log(keys);
         })
 
     </script>

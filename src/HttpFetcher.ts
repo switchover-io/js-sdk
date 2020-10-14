@@ -1,6 +1,4 @@
-import { ApiResponse } from "./ApiResponse";
-import { Fetcher } from "./core/Fetcher";
-import { Logger } from "./util/Logger";
+import { Logger, Fetcher, ApiResponse } from "switchover-js-core"
 import { API_ENDPOINT, API_ENDPOINT_FILENAME }  from './sdk-config';
 
 export class HttpFetcher implements Fetcher {

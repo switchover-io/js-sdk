@@ -1,15 +1,13 @@
-import { Client } from "./Client";
-import { EventEmitter } from "./core/Emitter";
-import { Evaluator } from "./Evaluator";
+export { LogLevel, Options } from 'switchover-js-core' 
+import { Client, Evaluator, Options, EventEmitter, LogLevel, MemoryCache } from "switchover-js-core";
 import { HttpFetcher } from "./HttpFetcher";
-import { MemoryCache } from "./MemoryCache";
-import { Options } from "./Options";
-import { LogLevel } from "./util/LogLevel";
+
 
 export namespace Switchover {
 
+
     export function createClient(sdkKey: string, logLevel?: LogLevel) : Client {
-        const options:Options = { polling: false };
+        const options:Options = { autoRefresh: false };
         return new Client(
             new Evaluator(),
             new EventEmitter(),
@@ -30,7 +28,6 @@ export namespace Switchover {
             options,
             logLevel);
     }
-
 
 
 }
