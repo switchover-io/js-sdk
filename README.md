@@ -35,15 +35,29 @@ import Switchover from 'switchover'
 
 You will find your SDK Key on the environment page. Copy it and use it to initialize the client:
 
+Basic usage:
+
 ```javascript
-const client = Switchover.createClient(<SKD_KEY>);
+const client = Switchover.createClient('<SKD_KEY>', {
 
-client.onInit( function() {
-    const value = client.value(<YOUR_FLAG>, <DEFAULT_VALUE>);
+    /* Add a init callback to get notified when all toggles are fetched */
+    onInit: () => {
+        /* evaluate the toggle status, provide a default status if evalutation fails */
+        const status = client.active('<YOUR_TOGGLE>', false)
+    }
+});
+```
 
-    //initialize your app state, or
-    if (value) {
-        //do something directly...
+Of course it's also possible to get notified if a toggle status get updated:
+```javascript
+const client = Switchover.createClient('<SKD_KEY>', {
+    /* Set auto refresh to true, for fetching periodically the toggle status */
+    autoRefresh: true,
+
+    onInit: () => { /* init your app store */ },
+    
+    onUpdated: ( keys ) => {
+        /* updated will be called if some toggle keys are changed */
     }
 });
 ```

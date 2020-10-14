@@ -2,32 +2,38 @@
 <head>
     <meta charset="utf-8">
     <title>Switchover JS Client Browser Demo</title>
-    <script src="../../dist-browser/switchover.min.js"></script>
+    <script src="../../dist/switchover.min.js"></script>
 </head>
 
 <body>
 
+    <h1>Welcome!</h1>
+
+    <p>Your toggle status: <span id="toggle_status">-</span></p>
 
     <script>
-        var client = Switchover.createClientWithOptions('fb6c850f-7934-4645-a295-ab507857b01f', {
+        var client = Switchover.createClient('fb6c850f-7934-4645-a295-ab507857b01f', {
             autoRefresh: true,
+            refreshInterval: 10,
+            onInit: initialised,
+            onUpdate: updated
         }, 'debug');
         
-        client.onLoaded( function() {
-            console.log('Loaded all toggles');
 
-            console.log('show-cta1 STATUS: '+  client.active('show-cta1', { stage: 'qa'}));
-        });
+        function initialised() {
+            console.log("initialised");
+            const ele = document.querySelector('#toggle_status');
+            ele.textContent = client.active('my-toggle', false);
+        }
 
-        client.onUpdated( function(keys) {
+        function updated(keys) {
             console.log('Updated');
-
-            console.log('show-cta1 STATUS: '+  client.active('show-cta1', { stage: 'qa'}));
 
             console.log('Changed keys');
             console.log(keys);
-        })
-
+            const ele = document.querySelector('#toggle_status');
+            ele.textContent = client.active('my-toggle', false);
+        }
     </script>
 
 </body>
