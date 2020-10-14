@@ -17,7 +17,7 @@ Use this SDK for client-side javascript projects.
 Just include Switchover as script tag
 
 ```html
-<script src=""></script>
+<script src="https://cdn.jsdelivr.net/npm/switchover-js-sdk@latest/dist/switchover.min.js"></script>
 ```
 
 For npm projects:
@@ -53,6 +53,9 @@ Of course it's also possible to get notified if a toggle status get updated:
 const client = Switchover.createClient('<SKD_KEY>', {
     /* Set auto refresh to true, for fetching periodically the toggle status */
     autoRefresh: true,
+
+    /* Set refresh interval, default is always 60 seconds */
+    refreshInterval: 60,
 
     onInit: () => { /* init your app store */ },
     
