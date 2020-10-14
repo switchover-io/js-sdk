@@ -1,6 +1,7 @@
 # Switchover SDK for Client-Side Javascript
 
 ![CI](https://github.com/switchover-io/js-sdk/workflows/CI/badge.svg)
+[![codecov](https://codecov.io/gh/switchover-io/js-sdk/branch/main/graph/badge.svg?token=qVOyfv8fmz)](undefined)
 
 ## Switchover
 
@@ -22,7 +23,7 @@ Just include Switchover as script tag
 For npm projects:
 
 ```bash
-npm i switchover-js-client
+npm i switchover-js-sdk
 ```
 
 Import the SDK:
