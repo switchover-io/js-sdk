@@ -5,7 +5,7 @@ import { terser } from "rollup-plugin-terser";
 import pkgJson from './package.json';
 
 export default [{
-  input: 'dist/index.js',
+  input: 'lib/index.js',
   output: {
     name: "Switchover",
     file: pkgJson.browser,
