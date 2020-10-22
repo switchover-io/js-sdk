@@ -12,7 +12,8 @@
     <p>Your toggle status: <span id="toggle_status">-</span></p>
 
     <script>
-        var client = Switchover.createClient('fb6c850f-7934-4645-a295-ab507857b01f', {
+        const sdkKey = '<SDK-KEY>';
+        var client = Switchover.createClient(sdkKey, {
             autoRefresh: true,
             refreshInterval: 10,
             onInit: initialised,
@@ -23,7 +24,7 @@
         function initialised() {
             console.log("initialised");
             const ele = document.querySelector('#toggle_status');
-            ele.textContent = client.active('my-toggle', false);
+            ele.textContent = client.toggleValue('my-toggle', false);
         }
 
         function updated(keys) {
@@ -32,7 +33,7 @@
             console.log('Changed keys');
             console.log(keys);
             const ele = document.querySelector('#toggle_status');
-            ele.textContent = client.active('my-toggle', false);
+            ele.textContent = client.toggleValue('my-toggle', false);
         }
     </script>
 

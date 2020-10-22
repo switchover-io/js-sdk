@@ -1,6 +1,6 @@
 {
   "name": "switchover-js-sdk",
-  "version": "0.6.4",
+  "version": "0.6.5",
   "description": "Switchover Javascript Client-Side SDK. Feature Toggle Management made easy",
   "main": "dist/index.js",
   "browser": "dist/switchover.min.js",
@@ -31,6 +31,6 @@
     "typescript": "^4.0.3"
   },
   "dependencies": {
-    "switchover-js-core": "^0.6.3"
+    "switchover-js-core": "^0.6.4"
   }
 }

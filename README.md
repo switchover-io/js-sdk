@@ -42,8 +42,8 @@ const client = Switchover.createClient('<SKD_KEY>', {
 
     /* Add a init callback to get notified when all toggles are fetched */
     onInit: () => {
-        /* evaluate the toggle status, provide a default status if evalutation fails */
-        const status = client.active('<YOUR_TOGGLE>', false)
+        /* evaluate the toggle value, provide a default value if evalutation fails */
+        const status = client.toggleValue('<YOUR_TOGGLE>', false)
     }
 });
 ```
