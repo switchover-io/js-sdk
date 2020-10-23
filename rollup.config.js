@@ -6,12 +6,20 @@ import pkgJson from './package.json';
 
 export default [{
   input: 'lib/index.js',
-  output: {
+
+  output: [{
     name: "Switchover",
-    file: pkgJson.browser,
-    format: 'iife',
+    file: './dist/switchover.min.js',
+    format: 'umd',
+    exports: 'named',
     sourcemap: true,
-  },
+  }, {
+    name: "Switchover",
+    file: './dist/switchover.es.js',
+    format: 'es',
+    exports: 'named',
+    sourcemap: true,
+  }],
   plugins: [
     resolve(),
     commonjs(),
