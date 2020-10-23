@@ -1,4 +1,4 @@
-import Switchover from '../src/index';
+import * as Switchover from '../src/index';
 
 test('create default client not null', () => {    
     const client = Switchover.createClient('key');
