@@ -4,7 +4,6 @@ import { HttpFetcher } from "./HttpFetcher";
 
 export namespace Switchover {
 
-
     /**
      * Create a new client for you given SDK-KEY. You should create only one client per sdkkey accross your application.
      * 
@@ -30,5 +29,5 @@ export namespace Switchover {
             baseOptions,
             logLevel);
     }
-
-}
+    
+} 
