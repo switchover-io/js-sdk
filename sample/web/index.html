@@ -14,7 +14,7 @@
     <script>
 
         
-        const sdkKey = '515693a2-d1ed-4498-9086-da9198a245b5';
+        const sdkKey = '<SDK-KEY>';
         var client = Switchover.createClient(sdkKey, {
             autoRefresh: true,
             refreshInterval: 10,
@@ -26,7 +26,7 @@
         function initialised() {
             console.log("initialised");
             const ele = document.querySelector('#toggle_status');
-            ele.textContent = client.toggleValue('show-intro-cta1', false);
+            ele.textContent = client.toggleValue('my-toggle', false);
         }
 
         function updated(keys) {
@@ -35,7 +35,7 @@
             console.log('Changed keys');
             console.log(keys);
             const ele = document.querySelector('#toggle_status');
-            ele.textContent = client.toggleValue('show-intro-cta1', false);
+            ele.textContent = client.toggleValue('my-toggle', false);
         }
     </script>
 
