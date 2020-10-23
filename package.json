@@ -1,13 +1,14 @@
 {
   "name": "switchover-js-sdk",
-  "version": "0.6.7",
+  "version": "0.6.8",
   "description": "Switchover Javascript Client-Side SDK. Feature Toggle Management made easy",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "module": "esm/index.js",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "module": "./esm/index.js",
   "browser": "dist/switchover.min.js",
   "files": [
     "lib",
+    "esm",
     "dist"
   ],
   "scripts": {
