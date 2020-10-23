@@ -28,7 +28,7 @@ npm i switchover-js-sdk
 
 Import the SDK:
 ```javascript
-import Switchover from 'switchover'
+import * as Switchover from 'switchover'
 ```
 
 ### Initialize client
