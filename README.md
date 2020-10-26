@@ -67,7 +67,7 @@ const client = Switchover.createClient('<SKD_KEY>', {
 
 ## Documentation
 
-Learn more on the official documentation: <a href="https://support.switch-over.io/docs">https://support.switch-over.io/docs</a>
+Learn more on the official documentation: <a href="https://support.switch-over.io/docs/quick-primer">Switchover Quickstart</a>
 
 
 
