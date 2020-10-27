@@ -1,9 +1,5 @@
-import { Options, LogLevel, Client, Evaluator, EventEmitter, MemoryCache } from "switchover-js-core";
+import { Options, LogLevel, Logger, Client, Evaluator, EventEmitter, MemoryCache } from "switchover-js-core";
 import { HttpFetcher } from "./HttpFetcher";
-
-export function doSomething() {
-    return { msg: "payload" }
-}
 
 export { Options, LogLevel, Client } from "switchover-js-core";
 export { HttpFetcher } from "./HttpFetcher";
@@ -23,12 +19,13 @@ export { HttpFetcher } from "./HttpFetcher";
      * @param logLevel 
      */
     export function createClient(sdkKey: string, options?:Options, logLevel?: LogLevel) : Client {
+    
         const baseOptions = options || { autoRefresh: false }
         return new Client(
             new Evaluator(),
             new EventEmitter(),
             new MemoryCache(),
-            new HttpFetcher(),
+            new HttpFetcher(Logger.createLogger(logLevel)),
             sdkKey,
             baseOptions,
             logLevel);

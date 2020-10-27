@@ -3,8 +3,11 @@ import { API_ENDPOINT, API_ENDPOINT_FILENAME }  from './sdk-config';
 
 export class HttpFetcher implements Fetcher {
 
-    private logger = Logger.getLogger();
-    
+    private logger: Logger;
+
+    constructor(logger?: Logger) {
+        this.logger = logger || Logger.getLogger();
+    }
 
     fetchAll(sdkKey: string, lastModified?: string): Promise<ApiResponse> {
         
@@ -27,7 +30,6 @@ export class HttpFetcher implements Fetcher {
             xhr.setRequestHeader('X-Switchover-User-Agent', 'switchover-js/1.0');
 
             xhr.send();
-
             xhr.onload = () => {
 
                 this.logger.debug('Fetch status ' + xhr.status);
