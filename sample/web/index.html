@@ -18,16 +18,15 @@
         var client = Switchover.createClient(sdkKey, {
             autoRefresh: true,
             refreshInterval: 10,
-            onInit: initialised,
             onUpdate: updated
         }, 'debug');
         
-
-        function initialised() {
+        client.fetch( function() {
             console.log("initialised");
             const ele = document.querySelector('#toggle_status');
-            ele.textContent = client.toggleValue('my-toggle', false);
-        }
+            ele.textContent = client.toggleValue('<TOGGLE-KEY>', false);
+        })
+
 
         function updated(keys) {
             console.log('Updated');
@@ -35,7 +34,7 @@
             console.log('Changed keys');
             console.log(keys);
             const ele = document.querySelector('#toggle_status');
-            ele.textContent = client.toggleValue('my-toggle', false);
+            ele.textContent = client.toggleValue('<TOGGLE-KEY>', false);
         }
     </script>
 

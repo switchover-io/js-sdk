@@ -9,7 +9,6 @@ export { HttpFetcher } from "./HttpFetcher";
      * 
      * You can provide several options:
      * 
-     * - onInit: callback when client is fully initialized and toggles are fetched
      * - onUpdate: callback when autoRefresh is enabled and toggles have been updated on server-side
      * - autoRefresh: set to true if you want to enable auto refreshing toggles
      * - refreshInterval: interval in seconds for polling the toggle endpoints. Default is 60 seconds. 
@@ -20,12 +19,22 @@ export { HttpFetcher } from "./HttpFetcher";
      */
     export function createClient(sdkKey: string, options?:Options, logLevel?: LogLevel) : Client {
     
+        const logger = Logger.createLogger(logLevel);
+
         const baseOptions = options || { autoRefresh: false }
+
+        //check for interval
+        if (baseOptions.autoRefresh && baseOptions.refreshInterval < 10) {
+            baseOptions.refreshInterval = 10;
+            logger.debug('Refresh interval was below 10s, set to 10s'); 
+        }
+
+
         return new Client(
             new Evaluator(),
             new EventEmitter(),
             new MemoryCache(),
-            new HttpFetcher(Logger.createLogger(logLevel)),
+            new HttpFetcher(logger),
             sdkKey,
             baseOptions,
             logLevel);

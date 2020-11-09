@@ -9,7 +9,6 @@ test('create client with auto refresh', () => {
     const client = Switchover.createClient('key', {
         autoRefresh: true,
         refreshInterval: 60,
-        onInit: () => {},
         onUpdate: () => {}
     })
     expect(client).not.toBeNull();
