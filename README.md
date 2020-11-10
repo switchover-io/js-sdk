@@ -38,32 +38,39 @@ You will find your SDK Key on the environment page. Copy it and use it to initia
 Basic usage:
 
 ```javascript
-const client = Switchover.createClient('<SKD_KEY>', {
+const client = Switchover.createClient('<SKD_KEY>'); 
 
-    /* Add a init callback to get notified when all toggles are fetched */
-    onInit: () => {
-        /* evaluate the toggle value, provide a default value if evalutation fails */
-        const status = client.toggleValue('<YOUR_TOGGLE>', false)
-    }
+/* fetch toggles from server/cache */
+client.fetch( () => {
+
+    /* evaluate the toggle value, provide a default value if evalutation fails */
+    const value = client.toggleValue('<YOUR_TOGGLE>', false));
+
+    //...
 });
 ```
 
-Of course it's also possible to get notified if a toggle status get updated:
+Of course it's also possible to enable auto-refresh on toggle updates:
+
 ```javascript
 const client = Switchover.createClient('<SKD_KEY>', {
     /* Set auto refresh to true, for fetching periodically the toggle status */
     autoRefresh: true,
 
-    /* Set refresh interval, default is always 60 seconds */
+    /* Set refresh interval, for example 60 seconds */
     refreshInterval: 60,
 
-    onInit: () => { /* init your app store */ },
-    
     onUpdated: ( keys ) => {
         /* updated will be called if some toggle keys are changed */
     }
 });
+
+/* Now you can do a initial fetch, actually it would be also possible for the first onUpdated cycle */
+client.fetch( () => {
+    //...
+});
 ```
+
 
 ## Documentation
 
