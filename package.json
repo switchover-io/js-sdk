@@ -11,6 +11,17 @@
     "esm",
     "dist"
   ],
+
+  "keywords": [
+    "switchover",
+    "switch-over",
+    "switchover-io",
+    "feature toggle",
+    "feature flag",
+    "feature switch",
+    "feature flag management",
+    "feature toggle management"
+  ],
   "scripts": {
     "test": "jest",
     "build": "tsc && tsc -p tsconfig.esm.json",
@@ -20,6 +31,10 @@
   "author": "Switchover",
   "homepage": "https://switch-over.io",
   "license": "MIT",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/switchover-io/js-sdk"
+  },
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",

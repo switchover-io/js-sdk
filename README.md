@@ -65,7 +65,7 @@ const client = Switchover.createClient('<SKD_KEY>', {
     }
 });
 
-/* Now you can do a initial fetch, actually it would be also possible for the first onUpdated cycle */
+/* Now you can do a initial fetch. It would be also possible to wait for the first update cycle */
 client.fetch( () => {
     //...
 });
