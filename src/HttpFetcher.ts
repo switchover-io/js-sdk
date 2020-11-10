@@ -38,17 +38,17 @@ export class HttpFetcher implements Fetcher {
                     const lastModified = xhr.getResponseHeader('Last-Modified')
                     this.logger.debug('Response Last-Modified ' + lastModified);
                     const result = JSON.parse(xhr.responseText);
-                    resolve( 
-                        { 
+                    resolve(
+                        {
                             lastModified: lastModified,
-                            payload: result 
+                            payload: result
                         });
-                } 
+                }
                 else if (xhr.status === 304) {
                     this.logger.debug('Config unchanged');
                     resolve(null);
                 }
-            }; 
+            };
             
             xhr.onerror = () => {
                 reject({ status: xhr.status, text: xhr.statusText});
