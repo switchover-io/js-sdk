@@ -31,7 +31,7 @@ export { HttpFetcher } from "./HttpFetcher";
 
 
         return new Client(
-            new Evaluator(),
+            new Evaluator(logger),
             new EventEmitter(),
             new MemoryCache(),
             new HttpFetcher(logger),
