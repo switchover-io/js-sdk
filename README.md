@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/switchover-io/js-sdk/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/switchover-io/js-sdk/branch/main/graph/badge.svg?token=qVOyfv8fmz)](undefined)
-
+![npm](https://img.shields.io/npm/v/switchover-js-sdk)
 ## Switchover
 
 Switchover is a Software-As-A-Service for managing feature toggles (aka switches, flags or feature flips) in your application. Use it for Continous Integration, Continous Delivery, A/B-Testing, Canary Releases, Experementing and everything else you can think of.
